@@ -42,6 +42,8 @@
                     </div>
                     
                     <div class="image-overlay">
+                        <button class="overlay-btn" onclick="event.stopPropagation(); toggleFavorite()" title="收藏">
+                            <i id="favoriteIcon" class="far fa-heart"></i>
                         </button>
                         <button class="overlay-btn" onclick="event.stopPropagation(); showSharePanel()" title="分享">
                             <i class="fas fa-share-alt"></i>
@@ -56,6 +58,18 @@
                     <button class="btn" onclick="loadRandomImage()" id="loadBtn">
                         <i class="fas fa-dice"></i>
                         <span>换一张</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="downloadImage()" id="downloadBtn">
+                        <i class="fas fa-download"></i>
+                        <span>下载</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="toggleFavorite()" id="favoriteBtn">
+                        <i class="far fa-heart"></i>
+                        <span>收藏</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="showSharePanel()" id="shareBtn">
+                        <i class="fas fa-share-alt"></i>
+                        <span>分享</span>
                     </button>
                 </div>
                 
@@ -76,7 +90,19 @@
                     <div class="stats-grid">
                         <div class="stat-item">
                             <div class="stat-number" id="viewCount">0</div>
-                            <div class="stat-label">今日浏览次数</div>
+                            <div class="stat-label">浏览次数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="favoriteCount">0</div>
+                            <div class="stat-label">收藏数量</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="downloadCount">0</div>
+                            <div class="stat-label">下载次数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="shareCount">0</div>
+                            <div class="stat-label">分享次数</div>
                         </div>
                     </div>
                 </div>
@@ -94,6 +120,33 @@
                     </div>
                 </div>
 
+                <!-- 我的收藏 -->
+                <div class="sidebar-card">
+                    <div class="sidebar-title">
+                        <i class="fas fa-heart"></i>
+                        我的收藏
+                    </div>
+                    <div class="content-list" id="favoritesList">
+                        <div style="text-align: center; color: var(--text-muted); padding: 30px 20px;">
+                            <i class="far fa-heart" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
+                            暂无收藏
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 浏览历史 -->
+                <div class="sidebar-card">
+                    <div class="sidebar-title">
+                        <i class="fas fa-history"></i>
+                        浏览历史
+                    </div>
+                    <div class="content-list" id="historyList">
+                        <div style="text-align: center; color: var(--text-muted); padding: 30px 20px;">
+                            <i class="fas fa-history" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
+                            暂无历史
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
